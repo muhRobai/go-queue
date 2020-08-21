@@ -1,0 +1,15 @@
+version: '3.1'
+services:
+  database: 
+    image: postgres:alpine
+    environment:
+      POSTGRES_USER: db
+      POSTGRES_DB: testdb
+      POSTGRES_PASSWORD: db
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+  testsmtp:
+    image: mailhog/mailhog
+    ports: 
+      - 19125:1025
+      - 19025:8025
