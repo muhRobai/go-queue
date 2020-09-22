@@ -78,3 +78,6 @@ clean-worker:
 clean-dispatcher: 
 	docker stop dispatcher
 	docker rm dispatcher
+
+swagger: gen-only
+	docker run -v --rm -it -v $(PREFIX):/work -w /work quay.io/goswagger/swagger generate spec -m -o swagger.json
